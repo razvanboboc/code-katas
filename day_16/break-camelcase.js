@@ -1,6 +1,5 @@
 function solution(string){
-    string = string.split(/(?=[A-Z])/g)
-    return string.join(' ');
+    return string.split(/(?=[A-Z])/g).join(' ');
 }
 
 console.log(solution('camelCasing'));
