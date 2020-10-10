@@ -19,3 +19,17 @@
 * [Categorize New Member](./day_14/open-or-senior.js) - [6 kyu](https://www.codewars.com/kata/5502c9e7b3216ec63c0001aa)
 * [Counting Duplicates](./day_14/counting-duplicates-3.js) - [6 kyu](https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1)
 * [Printer Errors](./day_14/printer-error.js) - [7 kyu](https://www.codewars.com/kata/56541980fa08ab47a0000040)
+
+## [Day 15](./day_15)
+
+* [Count the Digit](./day_15/count-the-digit.js) - [7 kyu](https://www.codewars.com/kata/566fc12495810954b1000030)
+* [Reverse or Rotate?](./day_15/reverse-or-rotate.js) - [6 kyu](https://www.codewars.com/kata/56b5afb4ed1f6d5fb0000991)
+
+## [Day 16](./day_16)
+
+* [Break camelCase](./day_16/break-camelcase.js) - [6 kyu](https://www.codewars.com/kata/5208f99aee097e6552000148)
+
+## [Day 17](./day_17)
+
+* [Maximum Length Difference](./day_17/max-dif-strings.js) - [7 kyu](https://www.codewars.com/kata/5663f5305102699bad000056)
+* [Take a Ten Minute Walk](./day_17/ten-minute-walk.js) - [6 kyu](https://www.codewars.com/kata/54da539698b8a2ad76000228)
