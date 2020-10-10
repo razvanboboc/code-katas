@@ -1,4 +1,4 @@
-# Code Katas
+# Code Katas - Progress
 
 ## [Day 14](./day_14)
 
