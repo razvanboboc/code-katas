@@ -1,20 +1,20 @@
 function mean(town, strng) {
-    let towns = strng.split('\n').filter(x => x.includes(town)).map(x => x.split(',').map(x => x.split(' ').map(x => parseFloat(x)).filter(x => x))).flat(),
+    let chosenTown = strng.split('\n').filter(x => x.includes(town)).map(x => x.split(',').map(x => x.split(' ').map(x => parseFloat(x)).filter(x => x))),
         average = 0;
-    
-    for(let value in towns){
-        average += parseFloat(towns[value]);
+    chosenTown = chosenTown.reduce((accumulator, obj) => [...accumulator, ...obj]);
+    for(let value in chosenTown){
+        average += parseFloat(chosenTown[value]);
     }
     
     return average/12;
 }
 function variance(town, strng) {
     let average = mean(town, strng),
-        towns = strng.split('\n').filter(x => x.includes(town)).map(x => x.split(',').map(x => x.split(' ').map(x => parseFloat(x)).filter(x => x))).flat(),
+        chosenTown = strng.split('\n').filter(x => x.includes(town)).map(x => x.split(',').map(x => x.split(' ').map(x => parseFloat(x)).filter(x => x))),
         variance = 0;
-    
-    for(let value in towns){
-        variance += Math.pow((parseFloat(towns[value]) - average), 2);
+    chosenTown = chosenTown.reduce((accumulator, obj) => [...accumulator, ...obj]);
+    for(let value in chosenTown){
+        variance += Math.pow((parseFloat(chosenTown[value]) - average), 2);
     }
 
     return variance / 12;
