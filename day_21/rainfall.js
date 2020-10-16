@@ -1,24 +1,34 @@
-function mean(town, strng) {
-    let chosenTown = strng.split('\n').filter(x => x.includes(town)).map(x => x.split(',').map(x => x.split(' ').map(x => parseFloat(x)).filter(x => x))),
-        average = 0;
-    chosenTown = chosenTown.reduce((accumulator, obj) => [...accumulator, ...obj]);
-    for(let value in chosenTown){
-        average += parseFloat(chosenTown[value]);
-    }
-    
-    return average/12;
-}
-function variance(town, strng) {
-    let average = mean(town, strng),
-        chosenTown = strng.split('\n').filter(x => x.includes(town)).map(x => x.split(',').map(x => x.split(' ').map(x => parseFloat(x)).filter(x => x))),
-        variance = 0;
-    chosenTown = chosenTown.reduce((accumulator, obj) => [...accumulator, ...obj]);
-    for(let value in chosenTown){
-        variance += Math.pow((parseFloat(chosenTown[value]) - average), 2);
-    }
+    function mean(town, strng) {
+        if(!strng.includes(town)){
+            return -1;
+        }
+        let chosenTownData = strng.split('\n').filter(x => x.includes(town)).toString().split(','),
+            average = 0,
+            numericalValues = chosenTownData.map(x => parseFloat(x.split(' ').pop()));
 
-    return variance / 12;
-}
+
+        for(let i = 0; i < numericalValues.length; i++){
+            average += numericalValues[i];
+        }
+        
+        return average / 12;
+    }
+    function variance(town, strng) {
+        if(!strng.includes(town)){
+            return -1;
+        }
+        let average = mean(town, strng),
+            chosenTownData = strng.split('\n').filter(x => x.includes(town)).toString().split(','),
+            variance = 0;
+            numericalValues = chosenTownData.map(x => parseFloat(x.split(' ').pop()));
+    
+
+        for(let i = 0; i< numericalValues.length; i++){
+            variance += Math.pow((numericalValues[i] - average), 2);
+        }
+
+        return variance / 12;
+    }
 
 const data = 
      "Rome:Jan 81.2,Feb 63.2,Mar 70.3,Apr 55.7,May 53.0,Jun 36.4,Jul 17.5,Aug 27.5,Sep 60.9,Oct 117.7,Nov 111.0,Dec 97.9" + "\n" +
