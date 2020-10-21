@@ -1,12 +1,20 @@
 function partsSums(ls) {
+    let sum = 0;
+    let sumsList = [];
     for(let i = 0; i < ls.length; i++){
-        for(let j = i + 1; j < ls.length; j++){
-            ls[i] += ls[j];
-        }
+        sum += ls[i];
     }
 
-    ls.push(0);
-    return ls;
+    sumsList.push(sum);
+
+    for(let i = 1; i < ls.length; i++){
+        sum -= ls[i - 1];
+        sumsList.push(sum);
+    }
+    if(sumsList.length !== 1){
+        sumsList.push(0);
+    }
+    return sumsList;
 }
 
-console.log(partsSums([0, 1, 3, 6, 10]));
+console.log(partsSums([]));
