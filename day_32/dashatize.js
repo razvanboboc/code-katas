@@ -1,4 +1,7 @@
 function dashatize(num) {
+    if(Number.isNaN(num)){
+        return 'NaN';
+    }
     num = (num + '').split('').map(function(x){
         if(parseInt(x) % 2 === 1){
             return '-' + x + '-';
@@ -9,12 +12,12 @@ function dashatize(num) {
     }).join('').replace(/--/g, '-');
     num = num.split('');
     if(num[0] === '-'){
-        num = num.splice(0,1);
+        num.splice(0,1);
     }
     if(num[num.length -1] === '-'){
-        num = num.splice(num.length - 1, 1);
+        num.splice(num.length - 1, 1);
     }
     return num.join('');
 }
 
-console.log(dashatize(274));
+console.log(dashatize(NaN));
