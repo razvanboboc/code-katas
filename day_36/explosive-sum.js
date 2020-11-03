@@ -1,31 +1,31 @@
-function sum(num) {
-    if(num === 1 || num === 2 || num === 3){
-        return num; 
+function printAllUniqueParts(n) {
+  let p = [n];
+  let k = 0;
+  let noOfPartitions = 0;
+  while (true) {
+    printArray(p);
+    noOfPartitions++;
+    let rem_val = 0;
+    while (k >= 0 && p[k] == 1) {
+      rem_val += p[k];
+      k--;
     }
-    console.log('Number: ' + num);
-    let counter = 3 + Math.floor(num/2);
-    console.log('Initial counter ' + counter);
-    for(let i = num - 2; i > 2; i--){
-        console.log('Counter: ' + counter);
-        console.log('Numbers in partition: ' + i)
-        let biggestNumberInPartition = num - i + 1;
-        process.stdout.write('Initial biggest number: ' + biggestNumberInPartition + ' // ')
-        do {
-            counter++;
-            biggestNumberInPartition--;
-            process.stdout.write(biggestNumberInPartition + ' ');
-        } while(biggestNumberInPartition > 1 )
-        console.log('\n');
+
+    if (k < 0) break;
+
+    p[k]--;
+    rem_val++;
+
+    while (rem_val > p[k]) {
+      p[k + 1] = p[k];
+      rem_val = rem_val - p[k];
+      k++;
     }
-    return counter;
+
+    p[k + 1] = rem_val;
+    k++;
+  }
+  return noOfPartitions;
 }
 
-
-// console.log(sum(1), 1);
-// console.log(sum(2), 2);
-// console.log(sum(3), 3);
-// console.log(sum(4), 5);
-
-// console.log(sum(5), 7);
-
-console.log(sum(9), 30);
+console.log(printAllUniqueParts(5));
