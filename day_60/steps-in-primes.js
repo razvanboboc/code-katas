@@ -2,37 +2,46 @@ function step(g, m, n) {
     for(let i = m; i <= n; i++){
         let isPrime = verifyIfPrime(i);
         if(isPrime){
-            let nextPrime = searchForNextPrime(i, n);
-            if(nextPrime - i === g){
+            let nextPrime = searchForNextPrime(i, n, g);
+            if(nextPrime){
                 return [i, nextPrime];
-            }
-            else{
-                continue;
             }
         }
     }
-    return [];
+    return null;
 }
 
 function verifyIfPrime(e){
-    let isPrime = true;
-    for(let i = e - 1; i > 1; i--){
+    if(e <= 1){
+        return false;
+    } else if (e === 2){
+        return true;
+    } else if (e % 2 === 0){
+        return false;
+    }
+    for(let i = 3; i <= Math.sqrt(e); i += 2){
         if(e % i === 0){
-            isPrime = false;
+            return false;
         }
     }
-    return isPrime;
+    return true;
 }
 
-function searchForNextPrime(e, n){
-    for(let i = e + 1; i <= n; i++){
+function searchForNextPrime(e, n, g){
+    for(let i = e + g; i <= n; i += g){
         let isPrime = verifyIfPrime(i);
         if(isPrime){
-            return i;
+            if(i - e === g){
+                return i;
+            } else if(i - e > g) {
+                return;
+            }
         }
     }
 }
 
+// console.log(Math.sqrt(17))
+// console.log(verifyIfPrime(17));
 console.log(step(2,100,110), [101, 103])
 console.log(step(4,100,110), [103, 107])
 console.log(step(6,100,110), [101, 107])
