@@ -1,7 +1,6 @@
 function step(g, m, n) {
     for(let i = m; i <= n; i++){
-        let isPrime = verifyIfPrime(i);
-        if(isPrime){
+        if(verifyIfPrime(i)){
             let nextPrime = searchForNextPrime(i, n, g);
             if(nextPrime){
                 return [i, nextPrime];
@@ -29,8 +28,7 @@ function verifyIfPrime(e){
 
 function searchForNextPrime(e, n, g){
     for(let i = e + g; i <= n; i += g){
-        let isPrime = verifyIfPrime(i);
-        if(isPrime){
+        if(verifyIfPrime(i)){
             if(i - e === g){
                 return i;
             } else if(i - e > g) {
