@@ -13,7 +13,8 @@ function code(strng) {
 }
 
 function decode(str) {
-    // str = str.substring(str.indexOf('1'), str.length).split('').reverse();
+    // str = str.substring(str.indexOf('1'), str.length).split('').reverse()
+    //transform numbers from maximum 8 bits to decimal.
     let result = [];
     let counter = 0;
     let number = 0;
