@@ -11,7 +11,12 @@ function code(strng) {
     });
     return result.join('');
 }
-
+//o alta idee:
+//cat timp strng.length != 0
+    //iterez prin toate codurile de la cel mai mare la cel mai mic
+    //daca strng.indexOf(cod) === 0 
+        //result.push(cod)
+        //elimin codul din strng
 function decode(strng){
     let codes = Array.of(
         ['1', '11'],
