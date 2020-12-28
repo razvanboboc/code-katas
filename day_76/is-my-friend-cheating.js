@@ -1,4 +1,10 @@
 function removeNb(n) {
+    //fac Math.sqrt(suma)
+    //din numarul dat fac Math.floor(rezultat)
+    //targetSum = rezultat + rezultat.
+    //caut pe langa valoarea sqrt cele doua numere care adaugate
+    //sa dea targetSum
+        //apoi verific daca inmultite dau suma - ele.
     let sum = n * (n + 1) / 2;
     //create a result array with pairs of numbers
     let pairs = [];
