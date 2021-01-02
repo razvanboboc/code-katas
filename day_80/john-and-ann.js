@@ -1,20 +1,30 @@
 function john(n) {
-    //generate both john and ann arrays as I go along
-    //both generated arrays are dependent on each other 
-    //for their generation -- they use the last element from
-    //the other array
+    let john = Array.of(0);
+    let ann = Array.of(1);
+    for(let i = 1; i < n; i++){
+        john.push(i - ann[john[i - 1]]);
+        ann.push(i - john[ann[i - 1]]);
+    }
+    return john;
 }
 function ann(n) {
-
+    let john = Array.of(0);
+    let ann = Array.of(1);
+    for(let i = 1; i < n; i++){
+        john.push(i - ann[john[i - 1]]);
+        ann.push(i - john[ann[i - 1]]);
+    }
+    return ann;
 }
 
 function sumJohn(n) {
-
+    let katas = john(n);
+    let sum = katas.reduce((sum, kata) => sum + kata);
+    return sum;
 }
 
 function sumAnn(n) {
-
+    let katas = ann(n);
+    let sum = katas.reduce((sum, kata) => sum + kata);
+    return sum;
 }
-
-console.log(john((11, [0, 0, 1, 2, 2, 3, 4, 4, 5, 6, 6])));
-console.log(ann((6, [1, 1, 2, 2, 3, 3])));
