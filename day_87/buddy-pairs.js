@@ -1,11 +1,10 @@
 function buddy(start,limit) {
-    //build an array with all the numbers from start to limit
-    //and add the sum of the divisors next to the numbers.
-    //go and try through trial and error what numbers are buddies
-    
     //condition to satisfy 
     //sum divisors of n = m + 1 sa mearga pana la sum - 1
     //sum divisors of m = n + 1 sa mearga pana la sum - 1
+    //sumDiv(n) = m - 1
+    //sumDiv(m) = n - 1
+
     // let numbers = [];
     // for(let i = start; i <= limit; i++){
     //     numbers.push([i, sumProperDivisors(i)])
@@ -26,19 +25,17 @@ function sumProperDivisors(n){
     if(n === 0){
         return 0;
     }
-    // console.log(n)
-    let divisors = [];
-    // console.log(divisors)
-    for(let i = 1; i <= n / 2; i++){
+    let divisors = [1];
+    for(let i = 2; i <= Math.sqrt(n); i++){
         if(n % i === 0){
             divisors.push(i);
+            divisors.push(n/i);
         }
     }
-    let sum = divisors.reduce((acc,cur) => acc + cur);
-    return sum;
+    return divisors.reduce((acc,cur) => acc + cur);
 }
 
-// console.log(sumProperDivisors(23))
+// console.log(sumProperDivisors(48))
 // console.log(sumProperDivisors(75))
 // console.log(buddy(48,75))
 // console.log(buddy(48,75))
