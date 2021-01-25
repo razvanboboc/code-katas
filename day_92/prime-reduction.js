@@ -1,11 +1,13 @@
 function solve(a, b) {
     let counter = 0;
+    let primes = []
     for (let i = a; i < b; i++) {
         if (isPrime(i) && primeReducer(i)) {
             counter++;
+            primes.push(i);
         }
     }
-    return counter;
+    return primes;
 }
 
 function primeReducer(n) {
@@ -47,4 +49,6 @@ function isPrime(n) {
 
 // console.log(solve(100,1000),28);
 // console.log(solve(1,25), 4);
-console.log(solve(100, 3000), 65);
+// console.log(solve(100, 3000), 65);
+let result = solve(30, 1050);
+result.forEach(x => console.log(`${x} is prime ${isPrime(x)} and reduceable ${primeReducer(x)}`))
